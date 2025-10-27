@@ -24,6 +24,10 @@ public class Agenda implements Serializable {
     @NotNull
     @Enumerated(EnumType.STRING)
     private StatusAgendamento statusAgendamento;
-    //CLIENTE
-    //PROFISSIONAL/EMPRESA/PJ
+    @NotNull
+    @ManyToOne
+    private Cliente cliente;
+    @NotNull
+    @ManyToOne
+    private Prestador prestador;
 }

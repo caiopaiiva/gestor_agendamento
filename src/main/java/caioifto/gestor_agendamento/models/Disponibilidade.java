@@ -36,6 +36,7 @@ public class Disponibilidade implements Serializable {
     private Integer tempoAtendimento;
     @NotNull
     private boolean estaAtivo;
-
-    //PROFISSIONAL-EMPRESA-CLIENTE
+    @NotNull
+    @ManyToOne
+    private Prestador prestador;
 }

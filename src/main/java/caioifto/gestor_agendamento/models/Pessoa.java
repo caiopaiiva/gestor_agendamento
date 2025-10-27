@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.br.CPF;
 
 import java.io.Serializable;
 
@@ -22,12 +23,12 @@ public abstract class Pessoa implements Serializable {
     private String nome;
     @NotBlank(message = "Sobrenome é obrigatório.")
     private String sobrenome;
-    /*@CPF
-    @NotBlank
-    private String cpf;*/
     @NotBlank
     @Pattern(regexp = "^\\d{2} \\d \\d{4}-\\d{4}$", message = "Telefone deve estar no formato: 99 9 9999-9999.")
     private String telefone;
+    @NotBlank
+    @CPF
+    private String cpf;
     @NotNull
     @OneToOne(cascade = CascadeType.ALL)
     private Endereco endereco;

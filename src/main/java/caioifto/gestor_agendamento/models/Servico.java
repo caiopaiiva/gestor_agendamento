@@ -20,6 +20,7 @@ public class Servico implements Serializable {
     private Double preco;
     @NotBlank(message = "A descrição do serviço é obrigatória.")
     private String descricao;
-
-    //PROFISSIONAL-EMPRESA-PJ
+    @NotNull
+    @ManyToOne
+    private Prestador prestador;
 }
