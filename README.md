@@ -80,7 +80,7 @@ Siga os passos abaixo para clonar e executar a aplicação em seu ambiente local
 
 ---
 
-## 🗺️ Mapeamento de Endpoints da API
+## Mapeamento de Endpoints da API
 
 Abaixo está um mapa preliminar dos endpoints RESTful planejados para a aplicação.
 
@@ -131,7 +131,7 @@ Abaixo está um mapa preliminar dos endpoints RESTful planejados para a aplicaç
 
 ---
 
-## 🔮 Próximos Passos
+## Próximos Passos
 
 * [ ] Implementar a camada de autenticação e autorização com **Spring Security** e JWT.
 * [ ] Substituir o H2 por um banco de dados persistente (ex: PostgreSQL ou MySQL) para o perfil de produção.
