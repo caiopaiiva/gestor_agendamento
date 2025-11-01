@@ -20,6 +20,8 @@ public class Servico implements Serializable {
     private Double preco;
     @NotBlank(message = "A descrição do serviço é obrigatória.")
     private String descricao;
+    @NotNull(message = "O tempo de atendimento deve ser informado.")
+    private Integer tempoMedioEmMinutos;
     @NotNull
     @ManyToOne
     private Prestador prestador;

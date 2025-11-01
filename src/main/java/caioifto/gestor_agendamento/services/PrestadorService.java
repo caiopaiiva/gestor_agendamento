@@ -1,7 +1,8 @@
 package caioifto.gestor_agendamento.services;
 
 import caioifto.gestor_agendamento.dtos.EnderecoDTO;
-import caioifto.gestor_agendamento.dtos.PrestadorDTO;
+import caioifto.gestor_agendamento.dtos.PrestadorResponseDTO;
+import caioifto.gestor_agendamento.dtos.ServicoResponseDTO;
 import caioifto.gestor_agendamento.repositorys.PrestadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,9 +14,9 @@ public class PrestadorService {
     @Autowired
     private PrestadorRepository prestadorRepository;
 
-    public List<PrestadorDTO> getAllPrestadores() {
+    public List<PrestadorResponseDTO> getAllPrestadores() {
         return prestadorRepository.getAll().stream().map(
-                prestador -> new PrestadorDTO(
+                prestador -> new PrestadorResponseDTO(
                         prestador.getId(),
                         prestador.getNome(),
                         prestador.getSobrenome(),
@@ -32,7 +33,15 @@ public class PrestadorService {
                                 prestador.getEndereco().getNumero(),
                                 prestador.getEndereco().getBairro(),
                                 prestador.getEndereco().getCidade().getNome() + "/" + prestador.getEndereco().getCidade().getEstado().getSigla()
-                        )
+                        ),
+                        prestador.getServicos().stream().map(
+                                servico -> new ServicoResponseDTO(
+                                        servico.getId(),
+                                        servico.getDescricao(),
+                                        servico.getPreco(),
+                                        servico.getTempoMedioEmMinutos()
+                                )
+                        ).toList()
                 )).toList();
     }
 }
