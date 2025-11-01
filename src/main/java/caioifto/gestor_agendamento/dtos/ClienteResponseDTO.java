@@ -1,13 +1,12 @@
 package caioifto.gestor_agendamento.dtos;
 
-public record PrestadorDTO(
+public record ClienteResponseDTO(
         Long id,
         String nome,
         String sobrenome,
         String cpf,
         String telefone,
         String email,
-        String cnpj,
-        String razaoSocial,
-        EnderecoDTO enderecoDTO) {
+        EnderecoDTO endereco
+) {
 }

@@ -15,4 +15,8 @@ public class PrestadorRepository {
     public List<Prestador> getAll() {
         return em.createQuery("from Prestador", Prestador.class).getResultList();
     }
+
+    public Prestador getById(Long id) {
+        return em.find(Prestador.class, id);
+    }
 }
